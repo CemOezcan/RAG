@@ -32,9 +32,9 @@ class KnowledgeBase:
                 line = 0
                 for sentence in text.split('.\n'):
                     line += 1
-                    line += sentence.count('\n')
                     if len(sentence) >= 45:
                         self.chunks.append({"text": sentence.replace('\n', ' '), "page": page_num, "line": line})
+                    line += sentence.count('\n')
 
     @torch.no_grad()
     def forward(self, x: str) -> Tensor:
